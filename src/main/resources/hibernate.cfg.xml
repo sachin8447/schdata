@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <mapping class="com.examania.schdata.entity.StudentInfoEntity"/>
+    <mapping class="com.examania.schdata.entity.UserDetailEntity"/>
+    <mapping class="com.examania.schdata.entity.UserRoleDetailEntity"/>
+    <mapping class="com.examania.schdata.entity.UserRoleGroupEntity"/>
+    <mapping class="com.examania.schdata.entity.MstCourseEntity"/>
+    <mapping class="com.examania.schdata.entity.MstExamEntity"/>
+    <mapping class="com.examania.schdata.entity.MstProvisionEntity"/>
+    <mapping class="com.examania.schdata.entity.MstQuestionEntity"/>
+    <mapping class="com.examania.schdata.entity.MstRuleEntity"/>
+    <mapping class="com.examania.schdata.entity.MstSubjectEntity"/>
+    <mapping class="com.examania.schdata.entity.RefCourseStuEntity"/>
+    <mapping class="com.examania.schdata.entity.RefCourseSubEntity"/>
+    <mapping class="com.examania.schdata.entity.RefExamQueEntity"/>
+    <mapping class="com.examania.schdata.entity.RefExamRuleEntity"/>
+    <mapping class="com.examania.schdata.entity.RefSubRuleEntity"/>
+    <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
