@@ -1,18 +1,18 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "mst_provision", schema = "scdata", catalog = "EXAMANIA")
-public class MstProvisionEntity {
-    private long provisionId;
-    private String provisionGuid;
-    private String provisionCode;
-    private String provisionNameEn;
-    private String provisionNameHi;
-    private String provisionNameRl;
-    private String provisionDescription;
+@Table(name = "mst_course", schema = "scdata", catalog = "EXAMANIA")
+public class MstCourseEntity {
+    private long courseId;
+    private String courseGuid;
+    private String courseCode;
+    private String courseNameEn;
+    private String courseNameHi;
+    private String courseNameRl;
+    private String courseDescription;
     private String createdBy;
     private Timestamp createdDate;
     private String createdIpAddr;
@@ -28,73 +28,73 @@ public class MstProvisionEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "provision_id", nullable = false)
-    public long getProvisionId() {
-        return provisionId;
+    @Column(name = "course_id", nullable = false)
+    public long getCourseId() {
+        return courseId;
     }
 
-    public void setProvisionId(long provisionId) {
-        this.provisionId = provisionId;
+    public void setCourseId(long courseId) {
+        this.courseId = courseId;
     }
 
     @Id
-    @Column(name = "provision_guid", nullable = false, length = 36)
-    public String getProvisionGuid() {
-        return provisionGuid;
+    @Column(name = "course_guid", nullable = false, length = 36)
+    public String getCourseGuid() {
+        return courseGuid;
     }
 
-    public void setProvisionGuid(String provisionGuid) {
-        this.provisionGuid = provisionGuid;
-    }
-
-    @Basic
-    @Column(name = "provision_code", nullable = false, length = 100)
-    public String getProvisionCode() {
-        return provisionCode;
-    }
-
-    public void setProvisionCode(String provisionCode) {
-        this.provisionCode = provisionCode;
+    public void setCourseGuid(String courseGuid) {
+        this.courseGuid = courseGuid;
     }
 
     @Basic
-    @Column(name = "provision_name_en", nullable = false, length = -1)
-    public String getProvisionNameEn() {
-        return provisionNameEn;
+    @Column(name = "course_code", nullable = false, length = 100)
+    public String getCourseCode() {
+        return courseCode;
     }
 
-    public void setProvisionNameEn(String provisionNameEn) {
-        this.provisionNameEn = provisionNameEn;
-    }
-
-    @Basic
-    @Column(name = "provision_name_hi", nullable = true, length = -1)
-    public String getProvisionNameHi() {
-        return provisionNameHi;
-    }
-
-    public void setProvisionNameHi(String provisionNameHi) {
-        this.provisionNameHi = provisionNameHi;
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 
     @Basic
-    @Column(name = "provision_name_rl", nullable = true, length = -1)
-    public String getProvisionNameRl() {
-        return provisionNameRl;
+    @Column(name = "course_name_en", nullable = false, length = -1)
+    public String getCourseNameEn() {
+        return courseNameEn;
     }
 
-    public void setProvisionNameRl(String provisionNameRl) {
-        this.provisionNameRl = provisionNameRl;
+    public void setCourseNameEn(String courseNameEn) {
+        this.courseNameEn = courseNameEn;
     }
 
     @Basic
-    @Column(name = "provision_description", nullable = true, length = -1)
-    public String getProvisionDescription() {
-        return provisionDescription;
+    @Column(name = "course_name_hi", nullable = true, length = -1)
+    public String getCourseNameHi() {
+        return courseNameHi;
     }
 
-    public void setProvisionDescription(String provisionDescription) {
-        this.provisionDescription = provisionDescription;
+    public void setCourseNameHi(String courseNameHi) {
+        this.courseNameHi = courseNameHi;
+    }
+
+    @Basic
+    @Column(name = "course_name_rl", nullable = true, length = -1)
+    public String getCourseNameRl() {
+        return courseNameRl;
+    }
+
+    public void setCourseNameRl(String courseNameRl) {
+        this.courseNameRl = courseNameRl;
+    }
+
+    @Basic
+    @Column(name = "course_description", nullable = true, length = -1)
+    public String getCourseDescription() {
+        return courseDescription;
+    }
+
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
     }
 
     @Basic
@@ -232,21 +232,16 @@ public class MstProvisionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MstProvisionEntity that = (MstProvisionEntity) o;
+        MstCourseEntity that = (MstCourseEntity) o;
 
-        if (provisionId != that.provisionId) return false;
+        if (courseId != that.courseId) return false;
         if (isActive != that.isActive) return false;
-        if (provisionGuid != null ? !provisionGuid.equals(that.provisionGuid) : that.provisionGuid != null)
-            return false;
-        if (provisionCode != null ? !provisionCode.equals(that.provisionCode) : that.provisionCode != null)
-            return false;
-        if (provisionNameEn != null ? !provisionNameEn.equals(that.provisionNameEn) : that.provisionNameEn != null)
-            return false;
-        if (provisionNameHi != null ? !provisionNameHi.equals(that.provisionNameHi) : that.provisionNameHi != null)
-            return false;
-        if (provisionNameRl != null ? !provisionNameRl.equals(that.provisionNameRl) : that.provisionNameRl != null)
-            return false;
-        if (provisionDescription != null ? !provisionDescription.equals(that.provisionDescription) : that.provisionDescription != null)
+        if (courseGuid != null ? !courseGuid.equals(that.courseGuid) : that.courseGuid != null) return false;
+        if (courseCode != null ? !courseCode.equals(that.courseCode) : that.courseCode != null) return false;
+        if (courseNameEn != null ? !courseNameEn.equals(that.courseNameEn) : that.courseNameEn != null) return false;
+        if (courseNameHi != null ? !courseNameHi.equals(that.courseNameHi) : that.courseNameHi != null) return false;
+        if (courseNameRl != null ? !courseNameRl.equals(that.courseNameRl) : that.courseNameRl != null) return false;
+        if (courseDescription != null ? !courseDescription.equals(that.courseDescription) : that.courseDescription != null)
             return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
@@ -272,13 +267,13 @@ public class MstProvisionEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (provisionId ^ (provisionId >>> 32));
-        result = 31 * result + (provisionGuid != null ? provisionGuid.hashCode() : 0);
-        result = 31 * result + (provisionCode != null ? provisionCode.hashCode() : 0);
-        result = 31 * result + (provisionNameEn != null ? provisionNameEn.hashCode() : 0);
-        result = 31 * result + (provisionNameHi != null ? provisionNameHi.hashCode() : 0);
-        result = 31 * result + (provisionNameRl != null ? provisionNameRl.hashCode() : 0);
-        result = 31 * result + (provisionDescription != null ? provisionDescription.hashCode() : 0);
+        int result = (int) (courseId ^ (courseId >>> 32));
+        result = 31 * result + (courseGuid != null ? courseGuid.hashCode() : 0);
+        result = 31 * result + (courseCode != null ? courseCode.hashCode() : 0);
+        result = 31 * result + (courseNameEn != null ? courseNameEn.hashCode() : 0);
+        result = 31 * result + (courseNameHi != null ? courseNameHi.hashCode() : 0);
+        result = 31 * result + (courseNameRl != null ? courseNameRl.hashCode() : 0);
+        result = 31 * result + (courseDescription != null ? courseDescription.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);

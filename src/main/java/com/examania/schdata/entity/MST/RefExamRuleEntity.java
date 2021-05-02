@@ -1,14 +1,14 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "ref_exam_que", schema = "scdata", catalog = "EXAMANIA")
-public class RefExamQueEntity {
-    private long refExamQueId;
-    private String refExamQueGuid;
-    private String questionGuid;
+@Table(name = "ref_exam_rule", schema = "scdata", catalog = "EXAMANIA")
+public class RefExamRuleEntity {
+    private long refExamRuleId;
+    private String refExamRuleGuid;
+    private String ruleGuid;
     private String examGuid;
     private String createdBy;
     private Timestamp createdDate;
@@ -25,33 +25,33 @@ public class RefExamQueEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "ref_exam_que_id", nullable = false)
-    public long getRefExamQueId() {
-        return refExamQueId;
+    @Column(name = "ref_exam_rule_id", nullable = false)
+    public long getRefExamRuleId() {
+        return refExamRuleId;
     }
 
-    public void setRefExamQueId(long refExamQueId) {
-        this.refExamQueId = refExamQueId;
+    public void setRefExamRuleId(long refExamRuleId) {
+        this.refExamRuleId = refExamRuleId;
     }
 
     @Id
-    @Column(name = "ref_exam_que_guid", nullable = false, length = 36)
-    public String getRefExamQueGuid() {
-        return refExamQueGuid;
+    @Column(name = "ref_exam_rule_guid", nullable = false, length = 36)
+    public String getRefExamRuleGuid() {
+        return refExamRuleGuid;
     }
 
-    public void setRefExamQueGuid(String refExamQueGuid) {
-        this.refExamQueGuid = refExamQueGuid;
+    public void setRefExamRuleGuid(String refExamRuleGuid) {
+        this.refExamRuleGuid = refExamRuleGuid;
     }
 
     @Basic
-    @Column(name = "question_guid", nullable = false, length = 36)
-    public String getQuestionGuid() {
-        return questionGuid;
+    @Column(name = "rule_guid", nullable = false, length = 36)
+    public String getRuleGuid() {
+        return ruleGuid;
     }
 
-    public void setQuestionGuid(String questionGuid) {
-        this.questionGuid = questionGuid;
+    public void setRuleGuid(String ruleGuid) {
+        this.ruleGuid = ruleGuid;
     }
 
     @Basic
@@ -199,13 +199,13 @@ public class RefExamQueEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RefExamQueEntity that = (RefExamQueEntity) o;
+        RefExamRuleEntity that = (RefExamRuleEntity) o;
 
-        if (refExamQueId != that.refExamQueId) return false;
+        if (refExamRuleId != that.refExamRuleId) return false;
         if (isActive != that.isActive) return false;
-        if (refExamQueGuid != null ? !refExamQueGuid.equals(that.refExamQueGuid) : that.refExamQueGuid != null)
+        if (refExamRuleGuid != null ? !refExamRuleGuid.equals(that.refExamRuleGuid) : that.refExamRuleGuid != null)
             return false;
-        if (questionGuid != null ? !questionGuid.equals(that.questionGuid) : that.questionGuid != null) return false;
+        if (ruleGuid != null ? !ruleGuid.equals(that.ruleGuid) : that.ruleGuid != null) return false;
         if (examGuid != null ? !examGuid.equals(that.examGuid) : that.examGuid != null) return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
@@ -231,9 +231,9 @@ public class RefExamQueEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (refExamQueId ^ (refExamQueId >>> 32));
-        result = 31 * result + (refExamQueGuid != null ? refExamQueGuid.hashCode() : 0);
-        result = 31 * result + (questionGuid != null ? questionGuid.hashCode() : 0);
+        int result = (int) (refExamRuleId ^ (refExamRuleId >>> 32));
+        result = 31 * result + (refExamRuleGuid != null ? refExamRuleGuid.hashCode() : 0);
+        result = 31 * result + (ruleGuid != null ? ruleGuid.hashCode() : 0);
         result = 31 * result + (examGuid != null ? examGuid.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);

@@ -1,22 +1,24 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "mst_question", schema = "scdata", catalog = "EXAMANIA")
-public class MstQuestionEntity {
-    private long questionId;
-    private String questionGuid;
-    private String questionCode;
-    private String questionDescriptionEn;
-    private String questionDescriptionHi;
-    private String questionDescriptionRl;
-    private String answerDescriptionEn;
-    private String answerDescriptionHi;
-    private String answerDescriptionRl;
+@Table(name = "mst_exam", schema = "scdata", catalog = "EXAMANIA")
+public class MstExamEntity {
+    private long examId;
+    private String examGuid;
+    private String examCode;
+    private String examNameEn;
+    private String examNameHi;
+    private String examNameRl;
+    private String examDescription;
     private String createdBy;
     private Timestamp createdDate;
+    private Timestamp startDateTime;
+    private Timestamp endDateTime;
+    private Timestamp startNoticeDateTime;
+    private Timestamp endNoticeDateTime;
     private String createdIpAddr;
     private String createdMacAddr;
     private String createdRemarks;
@@ -30,93 +32,73 @@ public class MstQuestionEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "question_id", nullable = false)
-    public long getQuestionId() {
-        return questionId;
+    @Column(name = "exam_id", nullable = false)
+    public long getExamId() {
+        return examId;
     }
 
-    public void setQuestionId(long questionId) {
-        this.questionId = questionId;
+    public void setExamId(long examId) {
+        this.examId = examId;
     }
 
     @Id
-    @Column(name = "question_guid", nullable = false, length = 36)
-    public String getQuestionGuid() {
-        return questionGuid;
+    @Column(name = "exam_guid", nullable = false, length = 36)
+    public String getExamGuid() {
+        return examGuid;
     }
 
-    public void setQuestionGuid(String questionGuid) {
-        this.questionGuid = questionGuid;
-    }
-
-    @Basic
-    @Column(name = "question_code", nullable = false, length = 100)
-    public String getQuestionCode() {
-        return questionCode;
-    }
-
-    public void setQuestionCode(String questionCode) {
-        this.questionCode = questionCode;
+    public void setExamGuid(String examGuid) {
+        this.examGuid = examGuid;
     }
 
     @Basic
-    @Column(name = "question_description_en", nullable = false, length = -1)
-    public String getQuestionDescriptionEn() {
-        return questionDescriptionEn;
+    @Column(name = "exam_code", nullable = false, length = 100)
+    public String getExamCode() {
+        return examCode;
     }
 
-    public void setQuestionDescriptionEn(String questionDescriptionEn) {
-        this.questionDescriptionEn = questionDescriptionEn;
-    }
-
-    @Basic
-    @Column(name = "question_description_hi", nullable = true, length = -1)
-    public String getQuestionDescriptionHi() {
-        return questionDescriptionHi;
-    }
-
-    public void setQuestionDescriptionHi(String questionDescriptionHi) {
-        this.questionDescriptionHi = questionDescriptionHi;
+    public void setExamCode(String examCode) {
+        this.examCode = examCode;
     }
 
     @Basic
-    @Column(name = "question_description_rl", nullable = true, length = -1)
-    public String getQuestionDescriptionRl() {
-        return questionDescriptionRl;
+    @Column(name = "exam_name_en", nullable = false, length = -1)
+    public String getExamNameEn() {
+        return examNameEn;
     }
 
-    public void setQuestionDescriptionRl(String questionDescriptionRl) {
-        this.questionDescriptionRl = questionDescriptionRl;
-    }
-
-    @Basic
-    @Column(name = "answer_description_en", nullable = true, length = -1)
-    public String getAnswerDescriptionEn() {
-        return answerDescriptionEn;
-    }
-
-    public void setAnswerDescriptionEn(String answerDescriptionEn) {
-        this.answerDescriptionEn = answerDescriptionEn;
+    public void setExamNameEn(String examNameEn) {
+        this.examNameEn = examNameEn;
     }
 
     @Basic
-    @Column(name = "answer_description_hi", nullable = true, length = -1)
-    public String getAnswerDescriptionHi() {
-        return answerDescriptionHi;
+    @Column(name = "exam_name_hi", nullable = true, length = -1)
+    public String getExamNameHi() {
+        return examNameHi;
     }
 
-    public void setAnswerDescriptionHi(String answerDescriptionHi) {
-        this.answerDescriptionHi = answerDescriptionHi;
+    public void setExamNameHi(String examNameHi) {
+        this.examNameHi = examNameHi;
     }
 
     @Basic
-    @Column(name = "answer_description_rl", nullable = true, length = -1)
-    public String getAnswerDescriptionRl() {
-        return answerDescriptionRl;
+    @Column(name = "exam_name_rl", nullable = true, length = -1)
+    public String getExamNameRl() {
+        return examNameRl;
     }
 
-    public void setAnswerDescriptionRl(String answerDescriptionRl) {
-        this.answerDescriptionRl = answerDescriptionRl;
+    public void setExamNameRl(String examNameRl) {
+        this.examNameRl = examNameRl;
+    }
+
+    @Basic
+    @Column(name = "exam_description", nullable = true, length = -1)
+    public String getExamDescription() {
+        return examDescription;
+    }
+
+    public void setExamDescription(String examDescription) {
+        this.examDescription = examDescription;
     }
 
     @Basic
@@ -137,6 +119,46 @@ public class MstQuestionEntity {
 
     public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
+    }
+
+    @Basic
+    @Column(name = "start_date_time", nullable = false)
+    public Timestamp getStartDateTime() {
+        return startDateTime;
+    }
+
+    public void setStartDateTime(Timestamp startDateTime) {
+        this.startDateTime = startDateTime;
+    }
+
+    @Basic
+    @Column(name = "end_date_time", nullable = false)
+    public Timestamp getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(Timestamp endDateTime) {
+        this.endDateTime = endDateTime;
+    }
+
+    @Basic
+    @Column(name = "start_notice_date_time", nullable = false)
+    public Timestamp getStartNoticeDateTime() {
+        return startNoticeDateTime;
+    }
+
+    public void setStartNoticeDateTime(Timestamp startNoticeDateTime) {
+        this.startNoticeDateTime = startNoticeDateTime;
+    }
+
+    @Basic
+    @Column(name = "end_notice_date_time", nullable = false)
+    public Timestamp getEndNoticeDateTime() {
+        return endNoticeDateTime;
+    }
+
+    public void setEndNoticeDateTime(Timestamp endNoticeDateTime) {
+        this.endNoticeDateTime = endNoticeDateTime;
     }
 
     @Basic
@@ -254,26 +276,26 @@ public class MstQuestionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MstQuestionEntity that = (MstQuestionEntity) o;
+        MstExamEntity that = (MstExamEntity) o;
 
-        if (questionId != that.questionId) return false;
+        if (examId != that.examId) return false;
         if (isActive != that.isActive) return false;
-        if (questionGuid != null ? !questionGuid.equals(that.questionGuid) : that.questionGuid != null) return false;
-        if (questionCode != null ? !questionCode.equals(that.questionCode) : that.questionCode != null) return false;
-        if (questionDescriptionEn != null ? !questionDescriptionEn.equals(that.questionDescriptionEn) : that.questionDescriptionEn != null)
-            return false;
-        if (questionDescriptionHi != null ? !questionDescriptionHi.equals(that.questionDescriptionHi) : that.questionDescriptionHi != null)
-            return false;
-        if (questionDescriptionRl != null ? !questionDescriptionRl.equals(that.questionDescriptionRl) : that.questionDescriptionRl != null)
-            return false;
-        if (answerDescriptionEn != null ? !answerDescriptionEn.equals(that.answerDescriptionEn) : that.answerDescriptionEn != null)
-            return false;
-        if (answerDescriptionHi != null ? !answerDescriptionHi.equals(that.answerDescriptionHi) : that.answerDescriptionHi != null)
-            return false;
-        if (answerDescriptionRl != null ? !answerDescriptionRl.equals(that.answerDescriptionRl) : that.answerDescriptionRl != null)
+        if (examGuid != null ? !examGuid.equals(that.examGuid) : that.examGuid != null) return false;
+        if (examCode != null ? !examCode.equals(that.examCode) : that.examCode != null) return false;
+        if (examNameEn != null ? !examNameEn.equals(that.examNameEn) : that.examNameEn != null) return false;
+        if (examNameHi != null ? !examNameHi.equals(that.examNameHi) : that.examNameHi != null) return false;
+        if (examNameRl != null ? !examNameRl.equals(that.examNameRl) : that.examNameRl != null) return false;
+        if (examDescription != null ? !examDescription.equals(that.examDescription) : that.examDescription != null)
             return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
+        if (startDateTime != null ? !startDateTime.equals(that.startDateTime) : that.startDateTime != null)
+            return false;
+        if (endDateTime != null ? !endDateTime.equals(that.endDateTime) : that.endDateTime != null) return false;
+        if (startNoticeDateTime != null ? !startNoticeDateTime.equals(that.startNoticeDateTime) : that.startNoticeDateTime != null)
+            return false;
+        if (endNoticeDateTime != null ? !endNoticeDateTime.equals(that.endNoticeDateTime) : that.endNoticeDateTime != null)
+            return false;
         if (createdIpAddr != null ? !createdIpAddr.equals(that.createdIpAddr) : that.createdIpAddr != null)
             return false;
         if (createdMacAddr != null ? !createdMacAddr.equals(that.createdMacAddr) : that.createdMacAddr != null)
@@ -296,17 +318,19 @@ public class MstQuestionEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (questionId ^ (questionId >>> 32));
-        result = 31 * result + (questionGuid != null ? questionGuid.hashCode() : 0);
-        result = 31 * result + (questionCode != null ? questionCode.hashCode() : 0);
-        result = 31 * result + (questionDescriptionEn != null ? questionDescriptionEn.hashCode() : 0);
-        result = 31 * result + (questionDescriptionHi != null ? questionDescriptionHi.hashCode() : 0);
-        result = 31 * result + (questionDescriptionRl != null ? questionDescriptionRl.hashCode() : 0);
-        result = 31 * result + (answerDescriptionEn != null ? answerDescriptionEn.hashCode() : 0);
-        result = 31 * result + (answerDescriptionHi != null ? answerDescriptionHi.hashCode() : 0);
-        result = 31 * result + (answerDescriptionRl != null ? answerDescriptionRl.hashCode() : 0);
+        int result = (int) (examId ^ (examId >>> 32));
+        result = 31 * result + (examGuid != null ? examGuid.hashCode() : 0);
+        result = 31 * result + (examCode != null ? examCode.hashCode() : 0);
+        result = 31 * result + (examNameEn != null ? examNameEn.hashCode() : 0);
+        result = 31 * result + (examNameHi != null ? examNameHi.hashCode() : 0);
+        result = 31 * result + (examNameRl != null ? examNameRl.hashCode() : 0);
+        result = 31 * result + (examDescription != null ? examDescription.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
+        result = 31 * result + (startDateTime != null ? startDateTime.hashCode() : 0);
+        result = 31 * result + (endDateTime != null ? endDateTime.hashCode() : 0);
+        result = 31 * result + (startNoticeDateTime != null ? startNoticeDateTime.hashCode() : 0);
+        result = 31 * result + (endNoticeDateTime != null ? endNoticeDateTime.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);
         result = 31 * result + (createdMacAddr != null ? createdMacAddr.hashCode() : 0);
         result = 31 * result + (createdRemarks != null ? createdRemarks.hashCode() : 0);

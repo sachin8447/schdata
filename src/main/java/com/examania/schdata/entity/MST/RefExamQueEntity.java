@@ -1,15 +1,15 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "ref_course_stu", schema = "scdata", catalog = "EXAMANIA")
-public class RefCourseStuEntity {
-    private long refCourseStuId;
-    private String refCourseStuGuid;
-    private String studentGuid;
-    private String courseGuid;
+@Table(name = "ref_exam_que", schema = "scdata", catalog = "EXAMANIA")
+public class RefExamQueEntity {
+    private long refExamQueId;
+    private String refExamQueGuid;
+    private String questionGuid;
+    private String examGuid;
     private String createdBy;
     private Timestamp createdDate;
     private String createdIpAddr;
@@ -25,43 +25,43 @@ public class RefCourseStuEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "ref_course_stu_id", nullable = false)
-    public long getRefCourseStuId() {
-        return refCourseStuId;
+    @Column(name = "ref_exam_que_id", nullable = false)
+    public long getRefExamQueId() {
+        return refExamQueId;
     }
 
-    public void setRefCourseStuId(long refCourseStuId) {
-        this.refCourseStuId = refCourseStuId;
+    public void setRefExamQueId(long refExamQueId) {
+        this.refExamQueId = refExamQueId;
     }
 
     @Id
-    @Column(name = "ref_course_stu_guid", nullable = false, length = 36)
-    public String getRefCourseStuGuid() {
-        return refCourseStuGuid;
+    @Column(name = "ref_exam_que_guid", nullable = false, length = 36)
+    public String getRefExamQueGuid() {
+        return refExamQueGuid;
     }
 
-    public void setRefCourseStuGuid(String refCourseStuGuid) {
-        this.refCourseStuGuid = refCourseStuGuid;
-    }
-
-    @Basic
-    @Column(name = "student_guid", nullable = false, length = 36)
-    public String getStudentGuid() {
-        return studentGuid;
-    }
-
-    public void setStudentGuid(String studentGuid) {
-        this.studentGuid = studentGuid;
+    public void setRefExamQueGuid(String refExamQueGuid) {
+        this.refExamQueGuid = refExamQueGuid;
     }
 
     @Basic
-    @Column(name = "course_guid", nullable = false, length = 36)
-    public String getCourseGuid() {
-        return courseGuid;
+    @Column(name = "question_guid", nullable = false, length = 36)
+    public String getQuestionGuid() {
+        return questionGuid;
     }
 
-    public void setCourseGuid(String courseGuid) {
-        this.courseGuid = courseGuid;
+    public void setQuestionGuid(String questionGuid) {
+        this.questionGuid = questionGuid;
+    }
+
+    @Basic
+    @Column(name = "exam_guid", nullable = false, length = 36)
+    public String getExamGuid() {
+        return examGuid;
+    }
+
+    public void setExamGuid(String examGuid) {
+        this.examGuid = examGuid;
     }
 
     @Basic
@@ -199,14 +199,14 @@ public class RefCourseStuEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RefCourseStuEntity that = (RefCourseStuEntity) o;
+        RefExamQueEntity that = (RefExamQueEntity) o;
 
-        if (refCourseStuId != that.refCourseStuId) return false;
+        if (refExamQueId != that.refExamQueId) return false;
         if (isActive != that.isActive) return false;
-        if (refCourseStuGuid != null ? !refCourseStuGuid.equals(that.refCourseStuGuid) : that.refCourseStuGuid != null)
+        if (refExamQueGuid != null ? !refExamQueGuid.equals(that.refExamQueGuid) : that.refExamQueGuid != null)
             return false;
-        if (studentGuid != null ? !studentGuid.equals(that.studentGuid) : that.studentGuid != null) return false;
-        if (courseGuid != null ? !courseGuid.equals(that.courseGuid) : that.courseGuid != null) return false;
+        if (questionGuid != null ? !questionGuid.equals(that.questionGuid) : that.questionGuid != null) return false;
+        if (examGuid != null ? !examGuid.equals(that.examGuid) : that.examGuid != null) return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
         if (createdIpAddr != null ? !createdIpAddr.equals(that.createdIpAddr) : that.createdIpAddr != null)
@@ -231,10 +231,10 @@ public class RefCourseStuEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (refCourseStuId ^ (refCourseStuId >>> 32));
-        result = 31 * result + (refCourseStuGuid != null ? refCourseStuGuid.hashCode() : 0);
-        result = 31 * result + (studentGuid != null ? studentGuid.hashCode() : 0);
-        result = 31 * result + (courseGuid != null ? courseGuid.hashCode() : 0);
+        int result = (int) (refExamQueId ^ (refExamQueId >>> 32));
+        result = 31 * result + (refExamQueGuid != null ? refExamQueGuid.hashCode() : 0);
+        result = 31 * result + (questionGuid != null ? questionGuid.hashCode() : 0);
+        result = 31 * result + (examGuid != null ? examGuid.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);

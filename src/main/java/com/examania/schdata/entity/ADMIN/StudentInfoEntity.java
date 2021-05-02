@@ -1,4 +1,4 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.ADMIN;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -40,7 +40,7 @@ public class StudentInfoEntity {
     private String modifiedRemarks;
     private String countryCode;
     private String formDataXml;
-    private Object formDataJson;
+    private String formDataJson;
 
     @Basic
     @Column(name = "student_info_id", nullable = false)
@@ -374,11 +374,11 @@ public class StudentInfoEntity {
 
     @Basic
     @Column(name = "form_data_json", nullable = true)
-    public Object getFormDataJson() {
+    public String getFormDataJson() {
         return formDataJson;
     }
 
-    public void setFormDataJson(Object formDataJson) {
+    public void setFormDataJson(String formDataJson) {
         this.formDataJson = formDataJson;
     }
 

@@ -1,15 +1,18 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "ref_exam_rule", schema = "scdata", catalog = "EXAMANIA")
-public class RefExamRuleEntity {
-    private long refExamRuleId;
-    private String refExamRuleGuid;
+@Table(name = "mst_rule", schema = "scdata", catalog = "EXAMANIA")
+public class MstRuleEntity {
+    private long ruleId;
     private String ruleGuid;
-    private String examGuid;
+    private String ruleCode;
+    private String ruleNameEn;
+    private String ruleNameHi;
+    private String ruleNameRl;
+    private String ruleDescription;
     private String createdBy;
     private Timestamp createdDate;
     private String createdIpAddr;
@@ -25,26 +28,16 @@ public class RefExamRuleEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "ref_exam_rule_id", nullable = false)
-    public long getRefExamRuleId() {
-        return refExamRuleId;
+    @Column(name = "rule_id", nullable = false)
+    public long getRuleId() {
+        return ruleId;
     }
 
-    public void setRefExamRuleId(long refExamRuleId) {
-        this.refExamRuleId = refExamRuleId;
+    public void setRuleId(long ruleId) {
+        this.ruleId = ruleId;
     }
 
     @Id
-    @Column(name = "ref_exam_rule_guid", nullable = false, length = 36)
-    public String getRefExamRuleGuid() {
-        return refExamRuleGuid;
-    }
-
-    public void setRefExamRuleGuid(String refExamRuleGuid) {
-        this.refExamRuleGuid = refExamRuleGuid;
-    }
-
-    @Basic
     @Column(name = "rule_guid", nullable = false, length = 36)
     public String getRuleGuid() {
         return ruleGuid;
@@ -55,13 +48,53 @@ public class RefExamRuleEntity {
     }
 
     @Basic
-    @Column(name = "exam_guid", nullable = false, length = 36)
-    public String getExamGuid() {
-        return examGuid;
+    @Column(name = "rule_code", nullable = false, length = 100)
+    public String getRuleCode() {
+        return ruleCode;
     }
 
-    public void setExamGuid(String examGuid) {
-        this.examGuid = examGuid;
+    public void setRuleCode(String ruleCode) {
+        this.ruleCode = ruleCode;
+    }
+
+    @Basic
+    @Column(name = "rule_name_en", nullable = false, length = -1)
+    public String getRuleNameEn() {
+        return ruleNameEn;
+    }
+
+    public void setRuleNameEn(String ruleNameEn) {
+        this.ruleNameEn = ruleNameEn;
+    }
+
+    @Basic
+    @Column(name = "rule_name_hi", nullable = true, length = -1)
+    public String getRuleNameHi() {
+        return ruleNameHi;
+    }
+
+    public void setRuleNameHi(String ruleNameHi) {
+        this.ruleNameHi = ruleNameHi;
+    }
+
+    @Basic
+    @Column(name = "rule_name_rl", nullable = true, length = -1)
+    public String getRuleNameRl() {
+        return ruleNameRl;
+    }
+
+    public void setRuleNameRl(String ruleNameRl) {
+        this.ruleNameRl = ruleNameRl;
+    }
+
+    @Basic
+    @Column(name = "rule_description", nullable = true, length = -1)
+    public String getRuleDescription() {
+        return ruleDescription;
+    }
+
+    public void setRuleDescription(String ruleDescription) {
+        this.ruleDescription = ruleDescription;
     }
 
     @Basic
@@ -199,14 +232,17 @@ public class RefExamRuleEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RefExamRuleEntity that = (RefExamRuleEntity) o;
+        MstRuleEntity that = (MstRuleEntity) o;
 
-        if (refExamRuleId != that.refExamRuleId) return false;
+        if (ruleId != that.ruleId) return false;
         if (isActive != that.isActive) return false;
-        if (refExamRuleGuid != null ? !refExamRuleGuid.equals(that.refExamRuleGuid) : that.refExamRuleGuid != null)
-            return false;
         if (ruleGuid != null ? !ruleGuid.equals(that.ruleGuid) : that.ruleGuid != null) return false;
-        if (examGuid != null ? !examGuid.equals(that.examGuid) : that.examGuid != null) return false;
+        if (ruleCode != null ? !ruleCode.equals(that.ruleCode) : that.ruleCode != null) return false;
+        if (ruleNameEn != null ? !ruleNameEn.equals(that.ruleNameEn) : that.ruleNameEn != null) return false;
+        if (ruleNameHi != null ? !ruleNameHi.equals(that.ruleNameHi) : that.ruleNameHi != null) return false;
+        if (ruleNameRl != null ? !ruleNameRl.equals(that.ruleNameRl) : that.ruleNameRl != null) return false;
+        if (ruleDescription != null ? !ruleDescription.equals(that.ruleDescription) : that.ruleDescription != null)
+            return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
         if (createdIpAddr != null ? !createdIpAddr.equals(that.createdIpAddr) : that.createdIpAddr != null)
@@ -231,10 +267,13 @@ public class RefExamRuleEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (refExamRuleId ^ (refExamRuleId >>> 32));
-        result = 31 * result + (refExamRuleGuid != null ? refExamRuleGuid.hashCode() : 0);
+        int result = (int) (ruleId ^ (ruleId >>> 32));
         result = 31 * result + (ruleGuid != null ? ruleGuid.hashCode() : 0);
-        result = 31 * result + (examGuid != null ? examGuid.hashCode() : 0);
+        result = 31 * result + (ruleCode != null ? ruleCode.hashCode() : 0);
+        result = 31 * result + (ruleNameEn != null ? ruleNameEn.hashCode() : 0);
+        result = 31 * result + (ruleNameHi != null ? ruleNameHi.hashCode() : 0);
+        result = 31 * result + (ruleNameRl != null ? ruleNameRl.hashCode() : 0);
+        result = 31 * result + (ruleDescription != null ? ruleDescription.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);
