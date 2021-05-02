@@ -1,20 +1,15 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "mst_subject", schema = "scdata", catalog = "EXAMANIA")
-public class MstSubjectEntity {
-    private long subjectId;
+@Table(name = "ref_course_sub", schema = "scdata", catalog = "EXAMANIA")
+public class RefCourseSubEntity {
+    private long refCourseSubId;
+    private String refCourseSubGuid;
+    private String courseGuid;
     private String subjectGuid;
-    private String subjectCode;
-    private String subjectNameEn;
-    private String subjectNameHi;
-    private String subjectNameRl;
-    private String subjectDescription;
-    private String subjectTotalMarks;
-    private String subjectPassMarks;
     private String createdBy;
     private Timestamp createdDate;
     private String createdIpAddr;
@@ -29,17 +24,37 @@ public class MstSubjectEntity {
     private String modifiedUri;
     private boolean isActive;
 
-    @Basic
-    @Column(name = "subject_id", nullable = false)
-    public long getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(long subjectId) {
-        this.subjectId = subjectId;
-    }
-
     @Id
+    @Column(name = "ref_course_sub_id", nullable = false)
+    public long getRefCourseSubId() {
+        return refCourseSubId;
+    }
+
+    public void setRefCourseSubId(long refCourseSubId) {
+        this.refCourseSubId = refCourseSubId;
+    }
+
+    @Basic
+    @Column(name = "ref_course_sub_guid", nullable = false, length = 36)
+    public String getRefCourseSubGuid() {
+        return refCourseSubGuid;
+    }
+
+    public void setRefCourseSubGuid(String refCourseSubGuid) {
+        this.refCourseSubGuid = refCourseSubGuid;
+    }
+
+    @Basic
+    @Column(name = "course_guid", nullable = false, length = 36)
+    public String getCourseGuid() {
+        return courseGuid;
+    }
+
+    public void setCourseGuid(String courseGuid) {
+        this.courseGuid = courseGuid;
+    }
+
+    @Basic
     @Column(name = "subject_guid", nullable = false, length = 36)
     public String getSubjectGuid() {
         return subjectGuid;
@@ -47,76 +62,6 @@ public class MstSubjectEntity {
 
     public void setSubjectGuid(String subjectGuid) {
         this.subjectGuid = subjectGuid;
-    }
-
-    @Basic
-    @Column(name = "subject_code", nullable = false, length = 100)
-    public String getSubjectCode() {
-        return subjectCode;
-    }
-
-    public void setSubjectCode(String subjectCode) {
-        this.subjectCode = subjectCode;
-    }
-
-    @Basic
-    @Column(name = "subject_name_en", nullable = false, length = -1)
-    public String getSubjectNameEn() {
-        return subjectNameEn;
-    }
-
-    public void setSubjectNameEn(String subjectNameEn) {
-        this.subjectNameEn = subjectNameEn;
-    }
-
-    @Basic
-    @Column(name = "subject_name_hi", nullable = true, length = -1)
-    public String getSubjectNameHi() {
-        return subjectNameHi;
-    }
-
-    public void setSubjectNameHi(String subjectNameHi) {
-        this.subjectNameHi = subjectNameHi;
-    }
-
-    @Basic
-    @Column(name = "subject_name_rl", nullable = true, length = -1)
-    public String getSubjectNameRl() {
-        return subjectNameRl;
-    }
-
-    public void setSubjectNameRl(String subjectNameRl) {
-        this.subjectNameRl = subjectNameRl;
-    }
-
-    @Basic
-    @Column(name = "subject_description", nullable = true, length = -1)
-    public String getSubjectDescription() {
-        return subjectDescription;
-    }
-
-    public void setSubjectDescription(String subjectDescription) {
-        this.subjectDescription = subjectDescription;
-    }
-
-    @Basic
-    @Column(name = "subject_total_marks", nullable = true, length = -1)
-    public String getSubjectTotalMarks() {
-        return subjectTotalMarks;
-    }
-
-    public void setSubjectTotalMarks(String subjectTotalMarks) {
-        this.subjectTotalMarks = subjectTotalMarks;
-    }
-
-    @Basic
-    @Column(name = "subject_pass_marks", nullable = true, length = -1)
-    public String getSubjectPassMarks() {
-        return subjectPassMarks;
-    }
-
-    public void setSubjectPassMarks(String subjectPassMarks) {
-        this.subjectPassMarks = subjectPassMarks;
     }
 
     @Basic
@@ -254,24 +199,14 @@ public class MstSubjectEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MstSubjectEntity that = (MstSubjectEntity) o;
+        RefCourseSubEntity that = (RefCourseSubEntity) o;
 
-        if (subjectId != that.subjectId) return false;
+        if (refCourseSubId != that.refCourseSubId) return false;
         if (isActive != that.isActive) return false;
+        if (refCourseSubGuid != null ? !refCourseSubGuid.equals(that.refCourseSubGuid) : that.refCourseSubGuid != null)
+            return false;
+        if (courseGuid != null ? !courseGuid.equals(that.courseGuid) : that.courseGuid != null) return false;
         if (subjectGuid != null ? !subjectGuid.equals(that.subjectGuid) : that.subjectGuid != null) return false;
-        if (subjectCode != null ? !subjectCode.equals(that.subjectCode) : that.subjectCode != null) return false;
-        if (subjectNameEn != null ? !subjectNameEn.equals(that.subjectNameEn) : that.subjectNameEn != null)
-            return false;
-        if (subjectNameHi != null ? !subjectNameHi.equals(that.subjectNameHi) : that.subjectNameHi != null)
-            return false;
-        if (subjectNameRl != null ? !subjectNameRl.equals(that.subjectNameRl) : that.subjectNameRl != null)
-            return false;
-        if (subjectDescription != null ? !subjectDescription.equals(that.subjectDescription) : that.subjectDescription != null)
-            return false;
-        if (subjectTotalMarks != null ? !subjectTotalMarks.equals(that.subjectTotalMarks) : that.subjectTotalMarks != null)
-            return false;
-        if (subjectPassMarks != null ? !subjectPassMarks.equals(that.subjectPassMarks) : that.subjectPassMarks != null)
-            return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
         if (createdIpAddr != null ? !createdIpAddr.equals(that.createdIpAddr) : that.createdIpAddr != null)
@@ -296,15 +231,10 @@ public class MstSubjectEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (subjectId ^ (subjectId >>> 32));
+        int result = (int) (refCourseSubId ^ (refCourseSubId >>> 32));
+        result = 31 * result + (refCourseSubGuid != null ? refCourseSubGuid.hashCode() : 0);
+        result = 31 * result + (courseGuid != null ? courseGuid.hashCode() : 0);
         result = 31 * result + (subjectGuid != null ? subjectGuid.hashCode() : 0);
-        result = 31 * result + (subjectCode != null ? subjectCode.hashCode() : 0);
-        result = 31 * result + (subjectNameEn != null ? subjectNameEn.hashCode() : 0);
-        result = 31 * result + (subjectNameHi != null ? subjectNameHi.hashCode() : 0);
-        result = 31 * result + (subjectNameRl != null ? subjectNameRl.hashCode() : 0);
-        result = 31 * result + (subjectDescription != null ? subjectDescription.hashCode() : 0);
-        result = 31 * result + (subjectTotalMarks != null ? subjectTotalMarks.hashCode() : 0);
-        result = 31 * result + (subjectPassMarks != null ? subjectPassMarks.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);

@@ -6,21 +6,21 @@
   <session-factory>
     <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
-    <mapping class="com.examania.schdata.entity.StudentInfoEntity"/>
-    <mapping class="com.examania.schdata.entity.UserDetailEntity"/>
-    <mapping class="com.examania.schdata.entity.UserRoleDetailEntity"/>
-    <mapping class="com.examania.schdata.entity.UserRoleGroupEntity"/>
-    <mapping class="com.examania.schdata.entity.MstCourseEntity"/>
-    <mapping class="com.examania.schdata.entity.MstExamEntity"/>
-    <mapping class="com.examania.schdata.entity.MstProvisionEntity"/>
-    <mapping class="com.examania.schdata.entity.MstQuestionEntity"/>
-    <mapping class="com.examania.schdata.entity.MstRuleEntity"/>
-    <mapping class="com.examania.schdata.entity.MstSubjectEntity"/>
-    <mapping class="com.examania.schdata.entity.RefCourseStuEntity"/>
-    <mapping class="com.examania.schdata.entity.RefCourseSubEntity"/>
-    <mapping class="com.examania.schdata.entity.RefExamQueEntity"/>
-    <mapping class="com.examania.schdata.entity.RefExamRuleEntity"/>
-    <mapping class="com.examania.schdata.entity.RefSubRuleEntity"/>
+    <mapping class="com.examania.schdata.entity.ADMIN.StudentInfoEntity"/>
+    <mapping class="com.examania.schdata.entity.ADMIN.UserDetailEntity"/>
+    <mapping class="com.examania.schdata.entity.ADMIN.UserRoleDetailEntity"/>
+    <mapping class="com.examania.schdata.entity.ADMIN.UserRoleGroupEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstCourseEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstExamEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstProvisionEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstQuestionEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstRuleEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.MstSubjectEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.RefCourseStuEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.RefCourseSubEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.RefExamQueEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.RefExamRuleEntity"/>
+    <mapping class="com.examania.schdata.entity.MST.RefSubRuleEntity"/>
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

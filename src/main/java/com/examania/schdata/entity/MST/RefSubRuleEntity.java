@@ -1,4 +1,4 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

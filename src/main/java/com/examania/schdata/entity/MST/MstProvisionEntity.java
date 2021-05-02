@@ -1,18 +1,18 @@
-package com.examania.schdata.entity;
+package com.examania.schdata.entity.MST;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "mst_rule", schema = "scdata", catalog = "EXAMANIA")
-public class MstRuleEntity {
-    private long ruleId;
-    private String ruleGuid;
-    private String ruleCode;
-    private String ruleNameEn;
-    private String ruleNameHi;
-    private String ruleNameRl;
-    private String ruleDescription;
+@Table(name = "mst_provision", schema = "scdata", catalog = "EXAMANIA")
+public class MstProvisionEntity {
+    private long provisionId;
+    private String provisionGuid;
+    private String provisionCode;
+    private String provisionNameEn;
+    private String provisionNameHi;
+    private String provisionNameRl;
+    private String provisionDescription;
     private String createdBy;
     private Timestamp createdDate;
     private String createdIpAddr;
@@ -28,73 +28,73 @@ public class MstRuleEntity {
     private boolean isActive;
 
     @Basic
-    @Column(name = "rule_id", nullable = false)
-    public long getRuleId() {
-        return ruleId;
+    @Column(name = "provision_id", nullable = false)
+    public long getProvisionId() {
+        return provisionId;
     }
 
-    public void setRuleId(long ruleId) {
-        this.ruleId = ruleId;
+    public void setProvisionId(long provisionId) {
+        this.provisionId = provisionId;
     }
 
     @Id
-    @Column(name = "rule_guid", nullable = false, length = 36)
-    public String getRuleGuid() {
-        return ruleGuid;
+    @Column(name = "provision_guid", nullable = false, length = 36)
+    public String getProvisionGuid() {
+        return provisionGuid;
     }
 
-    public void setRuleGuid(String ruleGuid) {
-        this.ruleGuid = ruleGuid;
-    }
-
-    @Basic
-    @Column(name = "rule_code", nullable = false, length = 100)
-    public String getRuleCode() {
-        return ruleCode;
-    }
-
-    public void setRuleCode(String ruleCode) {
-        this.ruleCode = ruleCode;
+    public void setProvisionGuid(String provisionGuid) {
+        this.provisionGuid = provisionGuid;
     }
 
     @Basic
-    @Column(name = "rule_name_en", nullable = false, length = -1)
-    public String getRuleNameEn() {
-        return ruleNameEn;
+    @Column(name = "provision_code", nullable = false, length = 100)
+    public String getProvisionCode() {
+        return provisionCode;
     }
 
-    public void setRuleNameEn(String ruleNameEn) {
-        this.ruleNameEn = ruleNameEn;
-    }
-
-    @Basic
-    @Column(name = "rule_name_hi", nullable = true, length = -1)
-    public String getRuleNameHi() {
-        return ruleNameHi;
-    }
-
-    public void setRuleNameHi(String ruleNameHi) {
-        this.ruleNameHi = ruleNameHi;
+    public void setProvisionCode(String provisionCode) {
+        this.provisionCode = provisionCode;
     }
 
     @Basic
-    @Column(name = "rule_name_rl", nullable = true, length = -1)
-    public String getRuleNameRl() {
-        return ruleNameRl;
+    @Column(name = "provision_name_en", nullable = false, length = -1)
+    public String getProvisionNameEn() {
+        return provisionNameEn;
     }
 
-    public void setRuleNameRl(String ruleNameRl) {
-        this.ruleNameRl = ruleNameRl;
+    public void setProvisionNameEn(String provisionNameEn) {
+        this.provisionNameEn = provisionNameEn;
     }
 
     @Basic
-    @Column(name = "rule_description", nullable = true, length = -1)
-    public String getRuleDescription() {
-        return ruleDescription;
+    @Column(name = "provision_name_hi", nullable = true, length = -1)
+    public String getProvisionNameHi() {
+        return provisionNameHi;
     }
 
-    public void setRuleDescription(String ruleDescription) {
-        this.ruleDescription = ruleDescription;
+    public void setProvisionNameHi(String provisionNameHi) {
+        this.provisionNameHi = provisionNameHi;
+    }
+
+    @Basic
+    @Column(name = "provision_name_rl", nullable = true, length = -1)
+    public String getProvisionNameRl() {
+        return provisionNameRl;
+    }
+
+    public void setProvisionNameRl(String provisionNameRl) {
+        this.provisionNameRl = provisionNameRl;
+    }
+
+    @Basic
+    @Column(name = "provision_description", nullable = true, length = -1)
+    public String getProvisionDescription() {
+        return provisionDescription;
+    }
+
+    public void setProvisionDescription(String provisionDescription) {
+        this.provisionDescription = provisionDescription;
     }
 
     @Basic
@@ -232,16 +232,21 @@ public class MstRuleEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MstRuleEntity that = (MstRuleEntity) o;
+        MstProvisionEntity that = (MstProvisionEntity) o;
 
-        if (ruleId != that.ruleId) return false;
+        if (provisionId != that.provisionId) return false;
         if (isActive != that.isActive) return false;
-        if (ruleGuid != null ? !ruleGuid.equals(that.ruleGuid) : that.ruleGuid != null) return false;
-        if (ruleCode != null ? !ruleCode.equals(that.ruleCode) : that.ruleCode != null) return false;
-        if (ruleNameEn != null ? !ruleNameEn.equals(that.ruleNameEn) : that.ruleNameEn != null) return false;
-        if (ruleNameHi != null ? !ruleNameHi.equals(that.ruleNameHi) : that.ruleNameHi != null) return false;
-        if (ruleNameRl != null ? !ruleNameRl.equals(that.ruleNameRl) : that.ruleNameRl != null) return false;
-        if (ruleDescription != null ? !ruleDescription.equals(that.ruleDescription) : that.ruleDescription != null)
+        if (provisionGuid != null ? !provisionGuid.equals(that.provisionGuid) : that.provisionGuid != null)
+            return false;
+        if (provisionCode != null ? !provisionCode.equals(that.provisionCode) : that.provisionCode != null)
+            return false;
+        if (provisionNameEn != null ? !provisionNameEn.equals(that.provisionNameEn) : that.provisionNameEn != null)
+            return false;
+        if (provisionNameHi != null ? !provisionNameHi.equals(that.provisionNameHi) : that.provisionNameHi != null)
+            return false;
+        if (provisionNameRl != null ? !provisionNameRl.equals(that.provisionNameRl) : that.provisionNameRl != null)
+            return false;
+        if (provisionDescription != null ? !provisionDescription.equals(that.provisionDescription) : that.provisionDescription != null)
             return false;
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
@@ -267,13 +272,13 @@ public class MstRuleEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (ruleId ^ (ruleId >>> 32));
-        result = 31 * result + (ruleGuid != null ? ruleGuid.hashCode() : 0);
-        result = 31 * result + (ruleCode != null ? ruleCode.hashCode() : 0);
-        result = 31 * result + (ruleNameEn != null ? ruleNameEn.hashCode() : 0);
-        result = 31 * result + (ruleNameHi != null ? ruleNameHi.hashCode() : 0);
-        result = 31 * result + (ruleNameRl != null ? ruleNameRl.hashCode() : 0);
-        result = 31 * result + (ruleDescription != null ? ruleDescription.hashCode() : 0);
+        int result = (int) (provisionId ^ (provisionId >>> 32));
+        result = 31 * result + (provisionGuid != null ? provisionGuid.hashCode() : 0);
+        result = 31 * result + (provisionCode != null ? provisionCode.hashCode() : 0);
+        result = 31 * result + (provisionNameEn != null ? provisionNameEn.hashCode() : 0);
+        result = 31 * result + (provisionNameHi != null ? provisionNameHi.hashCode() : 0);
+        result = 31 * result + (provisionNameRl != null ? provisionNameRl.hashCode() : 0);
+        result = 31 * result + (provisionDescription != null ? provisionDescription.hashCode() : 0);
         result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (createdIpAddr != null ? createdIpAddr.hashCode() : 0);
